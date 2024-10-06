@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-deployment
+  namespace: spring-boot-deployment
+  labels:
+    app: product-service
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-container
+          image: spring-boot-k8s:v5
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
