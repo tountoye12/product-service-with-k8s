@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: product-container
-          image: spring-boot-k8s:v5
+          image: spring-boot-k8s:v6
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

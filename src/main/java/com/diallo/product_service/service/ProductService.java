@@ -12,8 +12,11 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    @Autowired
+
     ProductRepository productRepository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public Product save(Product product) {
         return productRepository.save(product);
@@ -28,11 +31,6 @@ public class ProductService {
         return productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundExcepetion("Product not found"));
     }
-
-
-
-
-
 
 
 
